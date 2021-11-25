@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>"DigitalClock"</title>
+    <style>body
+    {
+        background-color:black;
+    }
+    .Clock{
+        position:absolute;
+        color:green;
+        top:50%;
+        transform: translateX(-50) translateY(-50);
+        font-size: 60px;
+        letter-spacing: 70px;;
+
+
+    }
+    </style>
+</head>
+<body>
+<div id="DigitalClock"></div>
+<script type="text/javascript">
+function showTimez(){
+    var date=new Date();//date deta
+    var h=date.getHours();
+    var m=date.getMinutes() ;
+    var s=date.getSeconds();
+    var session="AM";
+    //baatana k 12 or 24 hr format:12 hr
+    if(h==0){
+        h=12;//11:59 k baad
+    }
+    /*if(h>12)//13-12=1
+    {
+        h=h-12;
+        session="PM";
+    }
+    if(h<10)//toh 2 digit 
+    {
+        h="0"+h;
+    }
+    if(m<10)
+    {
+        m="0"+m;
+    }
+    if(s<10)
+    {
+        s="0"+s;
+    }*/
+    h=(h<10)?"0"+h:h;
+    m=(m<10)?"0"+m:m;
+    s=(s<10)?"0"+s:s;
+
+
+    document,getElementById("DigitalClock").innerHTML = h +":"+ m +":"+s+session;
+    setTimeout(showTimez,1000);//kab s a kab tak run karna
+}
+showTimez();
+
+</script>
+</body>
+</html>
